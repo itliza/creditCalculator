@@ -1,4 +1,5 @@
-.header {
+body {
+    font-family: 'Roboto', sans-serif;
 }
 .header_decor {
     background-color: #8fd289;
@@ -13,8 +14,6 @@
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
-}
-.logo {
 }
 .menu_wrapper {
     display: flex;
@@ -60,8 +59,6 @@
 }
 .basket_wrapper img {
     width: 100%;
-}
-.basket_desc {
 }
 .container {
     max-width: 1440px;
@@ -183,8 +180,10 @@
     margin-bottom: 10px;
     font-size: 18px;
 }
-.pay_monthly, .final_info {
+.monthlyPayment, .final_price, .payments {
     background-color: #8fd289;
+    padding: 3px;
+    color: #fff;
 }
 .btnClose {
     width: 36px;
@@ -199,4 +198,108 @@
 .btnClose img {
     width: 100%;
 }
+.credit_form {
+    border: 2px solid #3ba724;
+    padding: 20px;
+    background-color: rgba(143,210,137, 0.2);
+}
+.credit_form .credit_title {
+    font-size: 20px;
+    text-align: center;
+}
+.form_order {
+    display: flex;
+    flex-direction: column;
+}
+.form_order label {
+    font-size: 15px;
+    margin-top: 10px;
+    
+}
+.btn_send {
+    font-size: 17px;
+    padding: 5px 20px;
+    background-color: #3ba724;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    margin-top: 10px;
+}
 
+
+
+@media (max-width: 1250px) {
+    .modal_window {
+        width: 80%;
+    }    
+}
+@media (max-width: 1000px) {
+    .modal_window {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px 80px;
+    }
+    .item_info {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .credit_info {
+        margin-left: 0;
+    }
+}
+@media (max-width: 800px) {
+    .modal_window {
+        width: 90%;
+        padding: 50px;
+    } 
+
+}
+@media (max-width: 600px) {
+    .container {
+        font-size: 28px;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+    .header_navigation {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .menu_item {
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .menu_item:not(:last-child) {
+        margin-right: 10px;
+    }
+    .header_action .container {
+        flex-direction: column;
+    }
+    .search_input {
+        margin: 10px 0;
+    }
+    .btnClose {
+        top: 10px;
+        right: 10px;
+    }
+}
+@media (max-width: 500px) {
+    .modal_window {
+        padding: 20px 0;
+    } 
+    .credit_info {
+        border: none;
+    }
+    .menu_item, .item_title {
+        font-size: 14px;
+    }
+    .btnClose {
+        top: 0px;
+        right: 0px;
+    }
+}

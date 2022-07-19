@@ -10,6 +10,7 @@ const searchInput = document.querySelector('#search');
 function closeModal() {
     btnClose.addEventListener('click', ()=>{
         modalWindow.style.display = 'none';
+        document.querySelector('body').style.overflow = 'auto';
     })
 }
 
@@ -19,10 +20,6 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
     let btnPrivatContainer = document.querySelectorAll('.privat');
     let btnCreditContainer = document.querySelectorAll('.part_credit');
     let btnRacoonContainer = document.querySelectorAll('.bank_item');
-
-    console.log(btnRacoonContainer);
-
-
     let itemName = mainItem.querySelector('.item_title').textContent;
 
 
@@ -33,6 +30,7 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 priceItem = priceItem.replace(' ', '');
 
                 modalWindow.style.display = 'flex';
+                document.querySelector('body').style.overflow = 'hidden';
                 closeModal();
 
                 let paymantsQuantity = btnMono.querySelector('.pay_part').textContent;
@@ -43,13 +41,13 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                     monthlyPayment = priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = '';
-                    document.querySelector('.final_price').textContent = `${priceItem} ₴`;
+                    document.querySelector('.final_price').textContent = `${priceItem}`;
                 } 
                 else if(paymantsQuantity === '6') {
                     monthlyPayment = priceItem * 0.005 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 0.5% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
 
                 }
 
@@ -60,17 +58,8 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 document.querySelector('.bankName').textContent = 'Моно Банк';
                 document.querySelector('.payments').textContent = paymantsQuantity;
                 document.querySelector('.monthlyPayment').textContent = monthlyPayment;
-                console.log(imgLink);
-
-
             })
         }
-
-
-
-
-
-
     })
 
 
@@ -81,6 +70,7 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 priceItem = priceItem.replace(' ', '');
 
                 modalWindow.style.display = 'flex';
+                document.querySelector('body').style.overflow = 'hidden';
                 closeModal();
 
                 let paymantsQuantity = btnPrivat.querySelector('.pay_part').textContent;
@@ -91,22 +81,22 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                     monthlyPayment = priceItem * 0.005 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 0.5% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
+
 
                 }
                 else if(paymantsQuantity === '9') {
                     monthlyPayment = priceItem * 0.01 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 1% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
 
                 }
                 else if(paymantsQuantity === '12') {
                     monthlyPayment = priceItem * 0.02 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 2% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
 
 
@@ -116,12 +106,8 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 document.querySelector('.bankName').textContent = 'ПриватБанк';
                 document.querySelector('.payments').textContent = paymantsQuantity;
                 document.querySelector('.monthlyPayment').textContent = monthlyPayment;
-                console.log(imgLink);
-
-
             })
         }
-
     })
 
 
@@ -132,6 +118,7 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 priceItem = priceItem.replace(' ', '');
 
                 modalWindow.style.display = 'flex';
+                document.querySelector('body').style.overflow = 'hidden';
                 closeModal();
 
                 let paymantsQuantity = btnCredit.querySelector('.pay_part').textContent;
@@ -142,29 +129,25 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                     monthlyPayment = priceItem * 0.005 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 0.5% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
                 else if(paymantsQuantity === '9') {
                     monthlyPayment = priceItem * 0.01 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 1% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
                 else if(paymantsQuantity === '12') {
                     monthlyPayment = priceItem * 0.02 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 2% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
                 else if(paymantsQuantity === '15') {
                     monthlyPayment = priceItem * 0.035 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 3.5% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
 
 
@@ -174,9 +157,6 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 document.querySelector('.bankName').textContent = 'Credit Банк';
                 document.querySelector('.payments').textContent = paymantsQuantity;
                 document.querySelector('.monthlyPayment').textContent = monthlyPayment;
-                console.log(imgLink);
-
-
             })
         }
 
@@ -190,6 +170,7 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 priceItem = priceItem.replace(' ', '');
 
                 modalWindow.style.display = 'flex';
+                document.querySelector('body').style.overflow = 'hidden';
                 closeModal();
 
                 let paymantsQuantity = btnRacoon.querySelector('.pay_part').textContent;
@@ -200,8 +181,7 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                     monthlyPayment = priceItem * 0.015 + priceItem / paymantsQuantity;
                     monthlyPayment = monthlyPayment.toFixed(2);
                     document.querySelector('.percent_info').textContent = `Зверніть увагу, при оформленні розстрочки на ${paymantsQuantity} місяців до суми щомісячного платежу додається 1.5% від повної вартості товару.`;
-                    document.querySelector('.final_price').textContent = `${monthlyPayment * paymantsQuantity} ₴`;
-
+                    document.querySelector('.final_price').textContent = `${(monthlyPayment * paymantsQuantity).toFixed(2)}`;
                 }
 
 
@@ -211,8 +191,6 @@ mainItemContainer.forEach((mainItem, mainIndex) =>{
                 document.querySelector('.bankName').textContent = 'Racoon Банк';
                 document.querySelector('.payments').textContent = paymantsQuantity;
                 document.querySelector('.monthlyPayment').textContent = monthlyPayment;
-                console.log(imgLink);
-
 
             })
         }
@@ -229,7 +207,7 @@ function searchModel(){
         const word = e.target.value.toLowerCase();
         
         modelContainer.forEach(container =>{
-            container.querySelector('.item_title').textContent.toLowerCase().includes(word) ? container.style.display = 'block' : container.style.display = 'none'
+            container.querySelector('.item_title').textContent.toLowerCase().includes(word) ? container.style.display = 'block' : container.style.display = 'none';
         })
     })
 

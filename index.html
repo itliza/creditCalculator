@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
     <title>Document</title>
 </head>
 
@@ -34,7 +38,7 @@
         <div class="header_action">
             <div class="container">
                 <div class="catalog">Каталог</div>
-                <input type="search" name="" id="search" class="search_input" placeholder="Введіть назву моделі">
+                <input type="text" name="" id="search" class="search_input" placeholder="Введіть назву моделі">
                 <div class="basket">
                     <div class="basket_wrapper">
                         <img src="img/basket.svg" alt="">
@@ -50,7 +54,7 @@
         <div class="main">
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/remote.jpg_4.webp" alt="">
+                    <img src="img/electrolux.webp" alt="">
                 </div>
                 <h3 class="item_title">Прально-сушильна машина Electrolux EW7W368SU</h3>
                 <div class="price_wrapper">
@@ -76,7 +80,7 @@
             </div>
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/samsung_wd80k52e0aw_ua_3.webp" alt="">
+                    <img src="img/samsung.webp" alt="">
                 </div>
                 <h3 class="item_title">Прально-сушильна машина Samsung WD80K52E0AW/UA</h3>
                 <div class="price_wrapper">
@@ -98,7 +102,7 @@
             </div>
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/2732449.webp" alt="">
+                    <img src="img/lg.webp" alt="">
                 </div>
                 <h3 class="item_title">Прально-сушильна машина LG F4V5TG0W</h3>
                 <div class="price_wrapper">
@@ -124,7 +128,7 @@
             </div>
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/1656504410741-mwm_108_t3i_amy.webp" alt="">
+                    <img src="img/vestfrost.webp" alt="">
                 </div>
                 <h3 class="item_title">Пральна машина Vestfrost MWM108T3IAMY</h3>
                 <div class="price_wrapper">
@@ -154,7 +158,7 @@
             </div>
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/1803729_bosch_w16.webp" alt="">
+                    <img src="img/bosch.webp" alt="">
                 </div>
                 <h3 class="item_title">Пральна машина Bosch WNA14400ME</h3>
                 <div class="price_wrapper">
@@ -180,7 +184,7 @@
             </div>
             <div class="main_item">
                 <div class="item_img">
-                    <img src="img/1552268_aeg_l6se26sre_13.webp" alt="">
+                    <img src="img/aeg.webp" alt="">
                 </div>
                 <h3 class="item_title">Пральна машина AEG L6SE26SRE</h3>
                 <div class="price_wrapper">
@@ -224,8 +228,27 @@
                     <p class="pay_monthly">Місячний платіж складає <span class="monthlyPayment"></span> грн</p>
                     <p class="percent_info">Info about percents</p>
                     <p class="final_info">Повна вартість товару складає
-                        <span class="final_price">Final price</span>
+                        <span class="final_price">Final price</span> грн
                     </p>
+                    <div class="credit_form">
+                        <h2 class="credit_title">Залиште ваші дані для детальної інформації щодо кредитування</h2>
+                        <form
+                            action="https://formspree.io/f/xrgjnppj"
+                            method="POST"
+                            class="form_order"
+                            >
+                            <label>
+                                Ваше ім'я:
+                                <input type="text" name="name">
+                            </label>
+                            <label>
+                                Ваш телефон:
+                                <input type="tel" name="tel" id="">
+                            </label>
+                            <!-- your other form fields go here -->
+                            <button type="submit" class="btn_send">Send</button>
+                        </form>
+                    </div>
                 </div>
 
                 <button class="btnClose">
