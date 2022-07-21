@@ -56,6 +56,7 @@ body {
     width: 48px;
     height: 48px;
     margin-right: 10px;
+    position: relative;
 }
 .basket_wrapper img {
     width: 100%;
@@ -88,6 +89,7 @@ body {
     height: 300px;
     margin-bottom: 20px;
 }
+
 .item_img img {
     width: 100%;
 }
@@ -143,7 +145,7 @@ body {
 .pay_item img {
     width: 100%;
 }
-.modal {
+.modal, .modal_basket {
     display: none;
     position: fixed;
     z-index: 1; 
@@ -157,7 +159,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.modal_window {
+.modal_window, .basket_window {
     background-color: #fefefe;
     padding: 120px;
     border: 1px solid #888;
@@ -172,7 +174,7 @@ body {
     padding: 10px;
     flex: 0 0 70%;
 }
-.credit_title {
+.credit_title, .basket_title {
     font-size: 26px;
     margin-bottom: 20px;
 }
@@ -185,7 +187,7 @@ body {
     padding: 3px;
     color: #fff;
 }
-.btnClose {
+.btnClose, .btnCloseModal {
     width: 36px;
     height: 36px;
     background-color: transparent;
@@ -195,7 +197,7 @@ body {
     top: 50px;
     right: 50px;
 }
-.btnClose img {
+.btnClose img, .btnCloseModal img, .deleteItem img {
     width: 100%;
 }
 .credit_form {
@@ -216,7 +218,7 @@ body {
     margin-top: 10px;
     
 }
-.btn_send {
+.btn_send, .btnOrderBasket {
     font-size: 17px;
     padding: 5px 20px;
     background-color: #3ba724;
@@ -226,13 +228,65 @@ body {
     width: 30%;
     margin-top: 10px;
 }
-
-
+.main_basket {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: orange;
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    content: '';
+    font-size: 14px;
+}
+.basket_item-box {
+    width: 100px;
+    height: 100px;
+}
+.basket_item-box img {
+    width: 100%;
+}
+.basket_item {
+    display: flex;
+    align-items: center;
+}
+.basket_window {
+    flex-direction: column;
+}
+.basket_title, .basket_item {
+    margin-bottom: 50px;
+}
+.basket_item-title {
+    position: relative;
+}
+.deleteItem {
+    position: absolute;
+    z-index: 10;
+    top: 100;
+    right: 100px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    display: none;
+}
+.basket_container {
+    width: 100%;
+}
+.basket_container:hover .deleteItem {
+    display: block;
+}
 
 @media (max-width: 1250px) {
     .modal_window {
         width: 80%;
     }    
+    .monthlyPayment, .final_price, .payments {
+        padding: 0px;
+    }
 }
 @media (max-width: 1000px) {
     .modal_window {
