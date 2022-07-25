@@ -42,7 +42,7 @@ confirmBuy.addEventListener('click', ()=>{
         document.querySelectorAll('.basket_item').forEach(item=>{
             item.style.display = 'none';
         })
-        message.textContent = 'Ваша корзина порожня';
+        message.textContent = 'Ваша корзина порожняzzzzz';
         
         productArray.length = 0;
 
@@ -296,6 +296,10 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
 
             // console.log(productCard);
 
+            // if(productArray.includes(productDescription)) {
+            //     console.log('test title')
+            // }
+
 
             productArray.push(productCard);
             // console.log(productArray);
@@ -310,6 +314,8 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
                 confirmBuy.style.display = 'block';
                 
             } 
+    
+
 
             deleteProduct.addEventListener('click', ()=>{
                let deletedChild =  basketContainer.removeChild(productCard);
@@ -331,7 +337,8 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
 
                 if(productArray.length === 0) {
                     confirmBuy.style.display = 'none';
-                    message.textContent = 'Ваша корзина порожня';
+                    message.textContent = 'Ваша корзина порожня11';
+                    console.log(productArray)
                 }
             })
 
@@ -344,3 +351,5 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
 
 
 searchModel();
+
+
