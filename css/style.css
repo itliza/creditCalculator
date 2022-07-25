@@ -157,23 +157,25 @@ body {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.7);
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 .modal_window, .basket_window {
     background-color: #fefefe;
-    padding: 120px;
+    padding: 120px 40px;
     border: 1px solid #888;
-    width: 60%; 
+    width: 80%; 
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     position: relative;
+    max-height: fit-content;
+    overflow: auto;
 }
 
 .credit_info {
     margin-left: 50px;
     border: 1px solid black;
     padding: 10px;
-    flex: 0 0 70%;
+    /* flex: 0 0 70%; */
 }
 .credit_title, .basket_title {
     font-size: 26px;
@@ -284,10 +286,12 @@ body {
 .basket_container:hover .deleteItem {
     display: block;
 }
-
+.modal_window .item_info {
+    text-align: center;
+}
 @media (max-width: 1250px) {
     .modal_window, .basket_window {
-        width: 80%;
+        width: 90%;
     }    
     .monthlyPayment, .final_price, .payments {
         padding: 0px;
@@ -314,7 +318,7 @@ body {
 }
 @media (max-width: 800px) {
     .modal_window, .basket_window {
-        width: 90%;
+        /* width: 90%; */
         padding: 50px;
     } 
 
@@ -373,6 +377,7 @@ body {
         margin-right: 0;
     }
 }
+
 
 
 
