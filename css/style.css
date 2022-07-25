@@ -168,6 +168,7 @@ body {
     justify-content: center;
     position: relative;
 }
+
 .credit_info {
     margin-left: 50px;
     border: 1px solid black;
@@ -225,7 +226,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 5px;
-    width: 30%;
+    /* width: 30%; */
     margin-top: 10px;
 }
 .main_basket {
@@ -244,7 +245,9 @@ body {
 }
 .basket_item-box {
     width: 100px;
-    height: 100px;
+    /* height: 100px; */
+    margin-right: 20px;
+    /* border-right: 1px solid black; */
 }
 .basket_item-box img {
     width: 100%;
@@ -252,6 +255,8 @@ body {
 .basket_item {
     display: flex;
     align-items: center;
+    border-bottom: 1px solid black;
+    padding: 0 0 20px 0;
 }
 .basket_window {
     flex-direction: column;
@@ -281,7 +286,7 @@ body {
 }
 
 @media (max-width: 1250px) {
-    .modal_window {
+    .modal_window, .basket_window {
         width: 80%;
     }    
     .monthlyPayment, .final_price, .payments {
@@ -289,11 +294,13 @@ body {
     }
 }
 @media (max-width: 1000px) {
-    .modal_window {
+    .modal_window, .basket_window {
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding: 50px 80px;
+    }
+    .modal_window {
+        align-items: center;
     }
     .item_info {
         margin-bottom: 20px;
@@ -306,7 +313,7 @@ body {
     }
 }
 @media (max-width: 800px) {
-    .modal_window {
+    .modal_window, .basket_window {
         width: 90%;
         padding: 50px;
     } 
@@ -341,6 +348,9 @@ body {
         top: 10px;
         right: 10px;
     }
+    .basket_item-box {
+        flex: 0 0 100px;
+    }
 }
 @media (max-width: 500px) {
     .modal_window {
@@ -356,4 +366,13 @@ body {
         top: 0px;
         right: 0px;
     }
+    .basket_item {
+        flex-direction: column;
+    }
+    .basket_item-box {
+        margin-right: 0;
+    }
 }
+
+
+

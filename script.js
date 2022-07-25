@@ -13,16 +13,48 @@ const mainBasket = document.querySelector('.main_basket');
 const btnBuy = document.querySelectorAll('.btn_buy');
 
 const btnMainBasket = document.querySelector('.basket_wrapper'); 
+const basketContainer = document.querySelector('.basket_container');
 
 const basketTitle = document.querySelector('.basket_item-title');
 const basketItemImg = document.querySelector('.basket_item-img');
 const basketItem = document.querySelector('.basket_item');
+
+const confirmBuy = document.querySelector('.btnOrderBasket');
 
 
 btnCloseModal.addEventListener('click', ()=>{
     modalWindowBasket.style.display = 'none';
     document.querySelector('body').style.overflow = 'auto';
 })
+
+
+
+
+let message = document.createElement('p');
+basketContainer.appendChild(message);
+
+confirmBuy.addEventListener('click', ()=>{
+    
+    let answer = confirm('Натисніть Ок для підтвердження замовлення');
+    
+    if(answer) {
+        mainBasket.style.display = 'none';
+        document.querySelectorAll('.basket_item').forEach(item=>{
+            item.style.display = 'none';
+        })
+        message.textContent = 'Ваша корзина порожня';
+        
+        productArray.length = 0;
+
+        confirmBuy.style.display = 'none';
+    }
+})
+
+
+
+
+
+
 
 function closeModal() {
     btnClose.addEventListener('click', ()=>{
@@ -36,6 +68,12 @@ function addInfoToCard(img, title, price, paymantsQuantity, monthlyPayment){
     document.querySelector('.price-js').textContent = `${price} ₴`;
     document.querySelector('.payments').textContent = paymantsQuantity;
     document.querySelector('.monthlyPayment').textContent = monthlyPayment;
+
+}
+
+function getData(title){
+    // document.querySelector('.img-js').src = img;
+    document.querySelector('.title-js').textContent = title;
 
 }
 function searchModel(){
@@ -215,34 +253,88 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
         })
     })
 
+
+
+    
+
     let btnCart = mainItem.querySelector('.btn_buy');
+    let i = 0;
     btnCart.addEventListener('click', ()=>{
-        productArray.push(mainItem);
-        console.log(productArray);
-        if(productArray.length > 0) {
-            for(let i = 0; i<productArray.length; i++){
-
-                let title = productArray[i].querySelector('.item_title').textContent;
-                let img = productArray[i].querySelector('.item_img').querySelector('img').src;
-                console.log(img)
-
-                btnMainBasket.addEventListener('click', ()=>{
-                    document.querySelector('.modal_basket').style.display = 'block';
-                    document.querySelector('body').style.overflow = 'hidden';
-                    basketTitle.textContent = title;
-                    basketItemImg.src = img;
-                })
-
-                deleteItemFromBasket.addEventListener('click', ()=>{
-                    basketItem.textContent = '';
-                })
-            }
-        }
-
-        mainBasket.style.display = 'block';
-        mainBasket.textContent = productArray.length;
 
         
+            mainBasket.style.display = 'block';
+            mainBasket.textContent = productArray.length + 1;
+
+
+
+            let productCard = document.createElement('div');
+            let productImageBox = document.createElement('div');
+            let productImage = document.createElement('img');
+            let productDescription = document.createElement('p');
+            let deleteProduct = document.createElement('button');
+            let deleteProductImage = document.createElement('img');
+
+            productCard.classList.add('basket_item');
+            productImageBox.classList.add('basket_item-box');
+            productImage.classList.add('basket_item-img');
+            productDescription.classList.add('basket_item-title');
+            deleteProduct.classList.add('deleteItem');
+
+            productDescription.textContent = mainItem.querySelector('.item_title').textContent;
+            productImage.src = mainItem.querySelector('.item_img').querySelector('img').src;
+            deleteProductImage.src = 'img/close.svg';
+            
+            
+
+            productImageBox.appendChild(productImage);
+            deleteProduct.appendChild(deleteProductImage);
+            productCard.appendChild(productImageBox);
+            productCard.appendChild(productDescription);
+            productCard.appendChild(deleteProduct);
+            basketContainer.appendChild(productCard);
+
+
+            // console.log(productCard);
+
+
+            productArray.push(productCard);
+            // console.log(productArray);
+
+            if(productArray.length > 0) {
+                btnMainBasket.addEventListener('click', ()=>{
+                    document.querySelector('.modal_basket').style.display = 'flex';
+                    document.querySelector('body').style.overflow = 'hidden';
+                })
+
+                message.textContent = '';
+                confirmBuy.style.display = 'block';
+                
+            } 
+
+            deleteProduct.addEventListener('click', ()=>{
+               let deletedChild =  basketContainer.removeChild(productCard);
+               let titleOfDeleted = deletedChild.querySelector('p').textContent;
+
+                mainBasket.textContent --;
+                if(mainBasket.textContent === '0') {
+                    mainBasket.style.display = 'none';
+                }
+
+
+                productArray.forEach(item=>{
+                    if(item.querySelector('p').textContent === titleOfDeleted){
+                        let indexElement = productArray.indexOf(item);
+                        productArray.splice(indexElement, 1);
+
+                    }
+                })
+
+                if(productArray.length === 0) {
+                    confirmBuy.style.display = 'none';
+                    message.textContent = 'Ваша корзина порожня';
+                }
+            })
+
 
     })
 
@@ -252,5 +344,3 @@ mainItemContainer.forEach((mainItem, mainIndex)=>{
 
 
 searchModel();
-
-
